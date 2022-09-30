@@ -576,10 +576,10 @@
     semver "^7.3.5"
     tar "^6.1.11"
 
-"@oo-ticketing-dev/ticketing-common@1.0.10":
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/@oo-ticketing-dev/ticketing-common/-/ticketing-common-1.0.10.tgz#cfda1a554695c9dedc30657a6762ed77c41ecc71"
-  integrity sha512-s/DLDBVUmVQ8WofQlTTt8avMY3rp3bksh+MC/YBuqO4/Px34cVpzff4QkUhoXPi5KT7pYVxtXL9HTSg6lXU0+Q==
+"@oo-ticketing-dev/ticketing-common@^1.0.14":
+  version "1.0.14"
+  resolved "https://registry.yarnpkg.com/@oo-ticketing-dev/ticketing-common/-/ticketing-common-1.0.14.tgz#8a3d4e3591cd4169fa73b729cde3502a912555f3"
+  integrity sha512-oIzkk2oSaA+dI012jD21nIq8BosywuZ3JH8PgTGYkDbagOxl8vfCCbERJIpFaNCsSYTnvhyyGC25BYfghAZHZw==
   dependencies:
     "@types/cookie-session" "^2.0.44"
     "@types/express" "^4.17.14"

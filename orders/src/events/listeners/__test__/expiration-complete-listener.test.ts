@@ -1,5 +1,5 @@
 import {
-  ExpirationComplete,
+  ExpirationCompleteEvent,
   OrderStatus,
 } from "@oo-ticketing-dev/ticketing-common";
 import mongoose from "mongoose";
@@ -21,7 +21,7 @@ const setup = async () => {
     status: OrderStatus.Created,
     expiresAt: new Date(),
   }).save();
-  const data: ExpirationComplete["data"] = {
+  const data: ExpirationCompleteEvent["data"] = {
     orderId: order.id,
   };
   // @ts-ignore
