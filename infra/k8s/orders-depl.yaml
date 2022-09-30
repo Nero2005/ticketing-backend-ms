@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orders-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orders
+  template:
+    metadata:
+      labels:
+        app: orders
+    spec:
+      containers:
+        - name: orders
+          image: nero20052023/ticketing-orders
+          env:
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
+            - name: NODE_ENV
+              value: development
+            - name: ORDERS_DATABASE_URL
+              value: mongodb://orders-mongo-srv:27017/orders
+            - name: NATS_CLUSTER_ID
+              value: ticketing
+            - name: NATS_URL
+              value: http://nats-clusterip-srv:4222
+            - name: NATS_CLIENT_ID
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+          command: ["yarn", "start"]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: orders-clusterip-srv
+spec:
+  selector:
+    app: orders
+  ports:
+    - name: orders
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
