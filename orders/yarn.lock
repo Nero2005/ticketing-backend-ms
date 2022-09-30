@@ -576,7 +576,7 @@
     semver "^7.3.5"
     tar "^6.1.11"
 
-"@oo-ticketing-dev/ticketing-common@1.0.14":
+"@oo-ticketing-dev/ticketing-common@^1.0.14":
   version "1.0.14"
   resolved "https://registry.yarnpkg.com/@oo-ticketing-dev/ticketing-common/-/ticketing-common-1.0.14.tgz#8a3d4e3591cd4169fa73b729cde3502a912555f3"
   integrity sha512-oIzkk2oSaA+dI012jD21nIq8BosywuZ3JH8PgTGYkDbagOxl8vfCCbERJIpFaNCsSYTnvhyyGC25BYfghAZHZw==

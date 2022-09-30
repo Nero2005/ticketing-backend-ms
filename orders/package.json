@@ -16,7 +16,7 @@
     ]
   },
   "dependencies": {
-    "@oo-ticketing-dev/ticketing-common": "1.0.14",
+    "@oo-ticketing-dev/ticketing-common": "^1.0.14",
     "@typegoose/typegoose": "^9.11.2",
     "@types/cookie-session": "^2.0.44",
     "@types/cors": "^2.8.12",
