@@ -8,7 +8,7 @@ import { TicketUpdatedListener } from "./events/listeners/ticket-updated-listene
 import { natsWrapper } from "./nats-wrapper";
 
 const start = async (app: Application) => {
-  console.log("Starting up...");
+  console.log("Starting up... orders");
   if (!process.env.JWT_KEY) {
     throw new Error("No JWT_KEY");
   }
