@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auth
+  template:
+    metadata:
+      labels:
+        app: auth
+    spec:
+      containers:
+        - name: auth
+          image: nero20052023/ticketing-auth
+          env:
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
+            - name: NODE_ENV
+              value: development
+            - name: AUTH_DATABASE_URL
+              value: "mongodb+srv://Nero2005:mernstack@cluster0.2uruf.mongodb.net/ticketing-auth?retryWrites=true&w=majority"
+          command: ["yarn", "start"]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-clusterip-srv
+spec:
+  selector:
+    app: auth
+  ports:
+    - name: auth
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
