@@ -2,6 +2,7 @@ import { OrderCreatedListener } from "./events/listeners/order-created-listener"
 import { natsWrapper } from "./nats-wrapper";
 
 const start = async () => {
+  console.log("Starting up expiration... nice");
   if (!process.env.NATS_CLUSTER_ID) {
     throw new Error("No NATS_CLUSTER_ID");
   }
