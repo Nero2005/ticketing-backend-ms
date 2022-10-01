@@ -47,19 +47,11 @@ jobs:
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/ticketing-auth:latest
           cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/ticketing-auth:buildcache
           cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/ticketing-auth:buildcache,mode=max
-      - name: Azure login
-        id: login
-        uses: azure/login@v1.4.3
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
       - name: Set AKS context
-        id: set-context
-        uses: azure/aks-set-context@v3
+        uses: azure/k8s-set-context@v2
         with:
-          resource-group: '${{ secrets.resource_group }}' 
-          cluster-name: '${{ secrets.cluster_name }}'
-      - name: Setup kubectl
-        id: install-kubectl
-        uses: azure/setup-kubectl@v3
+          method: kubeconfig
+          kubeconfig: ${{ secrets.KUBE_CONFIG }}
+          context: ticketing-admin # current-context from kubeconfig is used as default
       - name: Deploy
         run: kubectl rollout restart deployment auth-depl --namespace=default
