@@ -29,7 +29,7 @@ console.log(process.env.NODE_ENV);
 app.use(cookieSession(cookieConfig));
 const allowedOrigins = [
   "http://localhost:3000",
-  "https://ticketing-frontend.vercel.app/",
+  "https://ticketing-frontend.vercel.app",
 ];
 const corsOption: CorsOptions = {
   origin: (

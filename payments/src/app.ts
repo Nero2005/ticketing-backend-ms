@@ -24,7 +24,10 @@ if (process.env.NODE_ENV === "production") {
 console.log(process.env.NODE_ENV);
 
 app.use(cookieSession(cookieConfig));
-const allowedOrigins = ["http://localhost:3000"];
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://ticketing-frontend.vercel.app",
+];
 const corsOption: CorsOptions = {
   origin: (
     requestOrigin: string | undefined,
