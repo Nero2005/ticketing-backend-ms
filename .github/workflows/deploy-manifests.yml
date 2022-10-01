@@ -38,8 +38,8 @@ jobs:
         id: set-context
         uses: azure/aks-set-context@v3
         with:
-          resource-group: "${{ secrets.resource_group }}"
-          cluster-name: "${{ secrets.cluster_name }}"
+          resource-group: "${{ secrets.RESOURCE_GROUP }}"
+          cluster-name: "${{ secrets.CLUSTER_NAME }}"
       - name: Setup kubectl
         id: install-kubectl
         uses: azure/setup-kubectl@v3
