@@ -29,26 +29,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Azure CLI script
-        uses: azure/CLI@v1
-        with:
-          azcliversion: 2.30.0
-          inlineScript: |
-            az account show
-            az storage -h
-      - name: Azure login
-        id: login
-        uses: azure/login@v1.4.3
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
       - name: Set AKS context
-        id: set-context
         uses: azure/aks-set-context@v3
         with:
-          resource-group: "${{ secrets.RESOURCE_GROUP }}"
-          cluster-name: "${{ secrets.CLUSTER_NAME }}"
-      - name: Setup kubectl
-        id: install-kubectl
-        uses: azure/setup-kubectl@v3
+          method: kubeconfig
+          kubeconfig: ${{ secrets.KUBE_CONFIG }}
+          context: ticketing-admin
       - name: Deploy manifests
         run: kubectl apply -f infra/k8s-prod
