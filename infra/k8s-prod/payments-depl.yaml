@@ -27,7 +27,7 @@ spec:
                   name: stripe-secret
                   key: STRIPE_KEY
             - name: NODE_ENV
-              value: development
+              value: production
             - name: PAYMENTS_DATABASE_URL
               value: "mongodb+srv://Nero2005:mernstack@cluster0.2uruf.mongodb.net/ticketing-payments?retryWrites=true&w=majority"
             - name: NATS_CLUSTER_ID

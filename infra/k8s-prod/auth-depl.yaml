@@ -22,7 +22,7 @@ spec:
                   name: jwt-secret
                   key: JWT_KEY
             - name: NODE_ENV
-              value: development
+              value: production
             - name: AUTH_DATABASE_URL
               value: "mongodb+srv://Nero2005:mernstack@cluster0.2uruf.mongodb.net/ticketing-auth?retryWrites=true&w=majority"
           command: ["yarn", "start"]

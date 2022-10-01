@@ -17,7 +17,7 @@ spec:
           image: nero20052023/ticketing-expiration
           env:
             - name: NODE_ENV
-              value: development
+              value: production
             - name: REDIS_HOST
               value: expiration-redis-srv
             - name: NATS_CLUSTER_ID
