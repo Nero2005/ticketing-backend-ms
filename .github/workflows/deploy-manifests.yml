@@ -30,10 +30,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Set AKS context
-        uses: azure/aks-set-context@v1
+        uses: azure/k8s-set-context@v2
         with:
           method: kubeconfig
           kubeconfig: ${{ secrets.KUBE_CONFIG }}
-          context: ticketing-admin
+          context: ticketing-admin # current-context from kubeconfig is used as default
       - name: Deploy manifests
         run: kubectl apply -f infra/k8s-prod
