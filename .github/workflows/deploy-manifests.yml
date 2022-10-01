@@ -30,7 +30,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Set AKS context
-        uses: azure/aks-set-context@v3
+        uses: azure/aks-set-context@v2
         with:
           method: kubeconfig
           kubeconfig: ${{ secrets.KUBE_CONFIG }}
