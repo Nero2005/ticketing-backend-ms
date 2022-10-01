@@ -6,11 +6,11 @@ name: deploy-manifests
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    branches: ["main"]
     paths:
-      - "auth/**"
+      - "infra/**"
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
     paths:
       - "infra/**"
 
@@ -38,8 +38,8 @@ jobs:
         id: set-context
         uses: azure/aks-set-context@v3
         with:
-          resource-group: '${{ secrets.resource_group }}' 
-          cluster-name: '${{ secrets.cluster_name }}'
+          resource-group: "${{ secrets.resource_group }}"
+          cluster-name: "${{ secrets.cluster_name }}"
       - name: Setup kubectl
         id: install-kubectl
         uses: azure/setup-kubectl@v3
